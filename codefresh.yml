@@ -8,7 +8,7 @@ steps:
     stage: checkout
     type: git-clone
     repo: 'gargp1/codefresh-terraform'
-    revision: master
+    revision: main
     git: github      
   DeployWithTerraform:
     image: hashicorp/terraform:1.2.4
