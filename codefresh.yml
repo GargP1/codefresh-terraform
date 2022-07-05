@@ -1,0 +1,19 @@
+version: '1.0'
+stages:
+  - checkout
+  - deploy
+steps:
+  main_clone:
+    title: Cloning main repository...
+    stage: checkout
+    type: git-clone
+    repo: 'gargp1/codefresh-terraform'
+    revision: master
+    git: github      
+  DeployWithTerraform:
+    image: hashicorp/terraform:1.2.4
+    title: Deploying Terraform plan
+    stage: deploy
+    commands:
+      - terraform init
+      - terraform apply -auto-approve
